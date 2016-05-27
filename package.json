@@ -1,0 +1,9 @@
+{
+    "name": "jptestsoftware-api",
+    "main": "server.js",
+    "dependencies": {
+        "express": "~4.13.x",
+        "mongoose": "~4.4.19",
+        "body-parser": "~1.0.1"
+    }
+}
