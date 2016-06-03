@@ -1,12 +1,12 @@
 var mongoose     = require('mongoose');
-var QuestionSchema = require('question');
+var QuestionSchema = require('./question');
 var Schema       = mongoose.Schema;
 
 var TestSchema = new Schema({
-	id: Number
-	name: String
-	testType: String
-	published: Boolean
+	//_id: Schema.Types.ObjectId,
+	name: String,
+	testType: String,
+	published: { type: Boolean, default: false},
 	questions: [QuestionSchema]
 });
 

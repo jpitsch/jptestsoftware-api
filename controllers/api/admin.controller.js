@@ -1,5 +1,5 @@
 var express = require('express');
-var User = require('../app/models/user');
+var User = require('./../../models/user');
 var router = express.Router();
 
 
@@ -15,12 +15,16 @@ router.route('/admin/user')
 	})
 
 	.post(function(req, res) {
+
 		var user = new User();
 		user.firstName = req.body.firstName;
 		user.lastName = req.body.lastName;
 		user.userName = req.body.userName;
 
+
 		user.save(function(err) {
+			console.log('Save....');
+
 			if (err)
 				res.send(err);
 

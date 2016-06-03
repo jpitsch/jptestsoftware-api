@@ -1,13 +1,12 @@
 var mongoose     = require('mongoose');
-var AnswerSchema = require('answer');
+var AnswerSchema = require('./answer');
 var Schema       = mongoose.Schema;
 
 var QuestionSchema = new Schema({
-	id: Number
-	selected: Boolean
-	correctAnswer: Number
-	text: String
-	number: Number
+	id: String,
+	correctAnswer: Number,
+	text: String,
+	number: Number,
 	answers: [AnswerSchema]
 });
 
