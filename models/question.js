@@ -1,10 +1,9 @@
 var mongoose     = require('mongoose');
-var AnswerSchema = require('./answer');
+var AnswerSchema = require('./answer').schema;
 var Schema       = mongoose.Schema;
 
 var QuestionSchema = new Schema({
-	id: String,
-	correctAnswer: Number,
+	correctAnswer: {type: Number, select: false },
 	text: String,
 	number: Number,
 	answers: [AnswerSchema]

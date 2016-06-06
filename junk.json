@@ -1,0 +1,23 @@
+//Some request calls for easy copy paste
+
+//Creating a Test
+{
+    "name": "Some test",
+    "testType": "Testing Something",
+    "published": "true"
+}
+
+//Creating a question for a test
+{
+    "text": "Some test",
+    "number": "",
+    "correctAnswer": "2",
+    "answers": [
+        {"position": "1", "text": "Answer 1"},
+        {"position": "2", "text": "Answer 2"},
+        {"position": "3", "text": "Answer 3"},
+        {"position": "4", "text": "Answer 4"}
+    ]
+}
+
+//Creating a user

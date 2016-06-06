@@ -1,5 +1,5 @@
 var mongoose     = require('mongoose');
-var QuestionSchema = require('./question');
+var QuestionSchema = require('./question').schema;
 var Schema       = mongoose.Schema;
 
 var TestSchema = new Schema({
