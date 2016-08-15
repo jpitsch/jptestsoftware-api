@@ -10,12 +10,13 @@ router.route('/test')
 			if(err)
 				res.send(err);
 
-			res.send(tests);
+			res.send({data: tests});
 		});
 	})
 
 	.post(function(req, res) {
-
+		console.log("Request for /test")
+		console.log(req.body);
 		var test = new Test(req.body);
 
 		test.save(function(err) {
@@ -32,7 +33,7 @@ router.route('/test/:id')
 		Test.findById(req.params.id, function(err, test) {
 			if(err)
 				res.send(err);
-			res.json(test);
+			res.json({data : [test]});
 		});
 	})
 

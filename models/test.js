@@ -5,7 +5,7 @@ var Schema       = mongoose.Schema;
 var TestSchema = new Schema({
 	//_id: Schema.Types.ObjectId,
 	name: String,
-	testType: String,
+	type: String,
 	published: { type: Boolean, default: false},
 	questions: [QuestionSchema]
 });
