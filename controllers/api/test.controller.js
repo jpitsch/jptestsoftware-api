@@ -8,9 +8,9 @@ router.route('/test')
 	.get(function(req, res) {
 		Test.find(function(err, tests) {
 			if(err)
-				res.send(err);
+				return res.send(err);
 
-			res.send({data: tests});
+			return res.send({data: tests});
 		});
 	})
 
@@ -22,9 +22,9 @@ router.route('/test')
 		test.save(function(err) {
 			
 			if(err)
-				res.send(err);
+				return res.send(err);
 
-			res.json({message: 'Test successfully created.'});
+			return res.send({message: 'Test successfully created.'});
 		});
 	});
 
@@ -32,8 +32,10 @@ router.route('/test/:id')
 	.get(function(req, res) {
 		Test.findById(req.params.id, function(err, test) {
 			if(err)
-				res.send(err);
-			res.json({data : [test]});
+				return res.send(err);
+
+			return res.send({data : [test]});
+			
 		});
 	})
 
@@ -41,9 +43,9 @@ router.route('/test/:id')
 		
 		Test.remove({_id: req.params.id}, function(err, test) {
 			if(err)
-				res.send(err);
+				return res.send(err);
 
-			res.json({message: 'Test successfully removed.'});
+			return res.json({message: 'Test successfully removed.'});
 		});
 		
 	});
@@ -54,9 +56,9 @@ router.route('/test/:id/question')
 	.get(function(req, res) {
 		Test.findById(req.params.id, function(err, test) {
 			if(err) 
-				res.send(err);
+				return res.send(err);
 
-			res.json(test.questions);
+			return res.json(test.questions);
 		});
 	})
 
@@ -68,14 +70,15 @@ router.route('/test/:id/question')
 		Test.findById(req.params.id, function(err, test) {
 
 			if(err)
-				res.send(err);
+				return res.send(err);
 
 			test.questions.push(question);
 			
 			test.save(function(err) {
 				if(err)
-					res.send(err);
-				res.json({message: "Question Saved"});
+					return res.send(err);
+
+				return res.json({message: "Question Saved"});
 			});
 		});
 	});
@@ -86,9 +89,9 @@ router.route('test/:id/question/:number')
 		Test.find({'_id': req.params.id, 'questions.number': req.params.number}, function(err, test) {
 
 			if(err)
-				res.send(err);
+				return res.send(err);
 
-			res.json(test);
+			return res.json(test);
 		});
 	});
 
